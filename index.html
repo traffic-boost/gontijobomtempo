@@ -1112,6 +1112,146 @@
       }
     }
 
+
+    /* Seção: Quem vai cuidar do seu caso */
+    .case-owner {
+      background: #F4F4F4;
+      color: var(--black-text);
+      padding: 90px 0;
+    }
+
+    .case-owner-card {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 56px;
+      align-items: center;
+      background: #fff;
+      border: 1px solid #E3E3E3;
+      border-radius: 18px;
+      padding: 42px;
+      box-shadow: 0 18px 45px rgba(2,2,2,.08);
+      overflow: hidden;
+    }
+
+    .case-owner-photo {
+      position: relative;
+      min-height: 520px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--dark-2);
+      box-shadow: 0 24px 60px rgba(2,2,2,.18);
+    }
+
+    .case-owner-photo img {
+      width: 100%;
+      height: 100%;
+      min-height: 520px;
+      display: block;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .case-owner-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(2,2,2,.28), transparent 55%);
+      pointer-events: none;
+    }
+
+    .case-owner-content .eyebrow {
+      color: var(--muted);
+    }
+
+    .case-owner-content h2 {
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.15;
+      letter-spacing: -.04em;
+      color: var(--dark-2);
+      margin-bottom: 20px;
+    }
+
+    .case-owner-content p {
+      color: var(--gray);
+      margin-bottom: 18px;
+    }
+
+    .case-owner-highlights {
+      display: grid;
+      gap: 14px;
+      margin: 30px 0;
+    }
+
+    .case-owner-highlight {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .case-owner-highlight .icon {
+      border-color: rgba(74,74,76,.24);
+      color: var(--gray);
+      background: #F4F4F4;
+    }
+
+    .case-owner-highlight strong {
+      display: block;
+      color: var(--dark-2);
+      font-size: 15px;
+      margin-bottom: 2px;
+    }
+
+    .case-owner-highlight span {
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    .case-owner-signature {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid #E3E3E3;
+    }
+
+    .case-owner-signature strong {
+      display: block;
+      color: var(--dark-2);
+      font-size: 20px;
+    }
+
+    .case-owner-signature span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 1050px) {
+      .case-owner-card {
+        grid-template-columns: 1fr;
+      }
+
+      .case-owner-photo,
+      .case-owner-photo img {
+        min-height: 420px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .case-owner {
+        padding: 70px 0;
+      }
+
+      .case-owner-card {
+        padding: 26px;
+        gap: 32px;
+      }
+
+      .case-owner-photo,
+      .case-owner-photo img {
+        min-height: 360px;
+      }
+    }
+
+
   </style>
 </head>
 <body>
@@ -1301,6 +1441,64 @@
       </div>
     </section>
 
+
+
+    <section class="case-owner" id="quem-vai-cuidar">
+      <div class="container">
+        <div class="case-owner-card">
+          <div class="case-owner-photo">
+            <!-- Troque o arquivo abaixo pela foto do seu cliente na mesma pasta do index.html -->
+            <img src="./perfil.png" alt="Advogado responsável pelo atendimento">
+          </div>
+
+          <div class="case-owner-content">
+            <div class="eyebrow">Quem vai cuidar do seu caso</div>
+            <h2>Atendimento próximo, técnico e focado na melhor estratégia para você</h2>
+
+            <p>
+              Nesta seção você pode apresentar o advogado responsável pelo atendimento,
+              destacando sua experiência, forma de trabalho e compromisso com cada cliente.
+            </p>
+
+            <p>
+              A ideia é mostrar que por trás do escritório existe um profissional acessível,
+              preparado para analisar cada detalhe do caso com seriedade, transparência e cuidado.
+            </p>
+
+            <div class="case-owner-highlights">
+              <div class="case-owner-highlight">
+                <span class="icon">⚖</span>
+                <div>
+                  <strong>Atuação em Direito do Trabalho</strong>
+                  <span>Experiência em demandas trabalhistas para empregados e empresas.</span>
+                </div>
+              </div>
+
+              <div class="case-owner-highlight">
+                <span class="icon">✓</span>
+                <div>
+                  <strong>Análise individual de cada caso</strong>
+                  <span>Estratégias construídas de acordo com a realidade e os objetivos do cliente.</span>
+                </div>
+              </div>
+
+              <div class="case-owner-highlight">
+                <span class="icon">✦</span>
+                <div>
+                  <strong>Comunicação clara e transparente</strong>
+                  <span>Acompanhamento próximo para que você entenda cada etapa do processo.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-owner-signature">
+              <strong>Nome do Advogado</strong>
+              <span>OAB/UF 000.000 · Advogado Trabalhista</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="videos" id="videos">
       <div class="container">
