@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gontijo Bomtempo | Advocacia Trabalhista</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #020202;
+      --dark: #0B0D14;
+      --dark-2: #151820;
+      --dark-3: #2A2C33;
+      --gray: #4A4A4C;
+      --muted: #737376;
+      --silver: #A8A8A9;
+      --silver-light: #D8D8D8;
+      --text: #F3F3F3;
+      --text-soft: #D8D8D8;
+      --card: #151820;
+      --card-light: #F4F4F4;
+      --black-text: #151820;
+      --line: rgba(216,216,216,.14);
+      --shadow: 0 28px 80px rgba(0,0,0,.45);
+      --radius: 18px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      color: var(--text);
+      background: var(--dark);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 50;
+      padding: 30px 0;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .logo-img {
+      height: 58px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .logo-mark {
+      width: 44px;
+      height: 44px;
+      border: 3px solid var(--silver-light);
+      display: grid;
+      place-items: center;
+      color: var(--silver-light);
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .logo small {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: .16em;
+      margin-top: -3px;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      font-size: 14px;
+      color: rgba(255,255,255,.84);
+    }
+
+    .menu a {
+      position: relative;
+      padding: 8px 0;
+    }
+
+    .menu a.active::after,
+    .menu a:hover::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--silver-light);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 28px;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: .25s ease;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--silver-light), var(--silver));
+      color: var(--black);
+      box-shadow: 0 16px 30px rgba(216,216,216,.14);
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(216,216,216,.22);
+      background: linear-gradient(135deg, #ffffff, var(--silver-light));
+    }
+
+    .btn-outline {
+      border-color: rgba(255,255,255,.38);
+      color: #fff;
+      background: rgba(255,255,255,.03);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--silver-light);
+      color: var(--silver-light);
+    }
+
+    .hero {
+      min-height: 860px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 78% 42%, rgba(168,168,169,.12), transparent 30%),
+        linear-gradient(90deg, var(--black) 0%, var(--dark) 42%, rgba(21,24,32,.38) 67%, var(--dark) 100%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 60%;
+      height: 100%;
+      background:
+        linear-gradient(90deg, var(--dark) 0%, rgba(11,13,20,.32) 32%, rgba(11,13,20,.78) 100%),
+        url('banner.png') center/cover no-repeat;
+      opacity: .9;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 220px;
+      background: linear-gradient(0deg, var(--dark) 0%, transparent 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding-top: 90px;
+      width: min(620px, 100%);
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 5vw, 72px);
+      line-height: 1.05;
+      letter-spacing: -0.06em;
+      font-weight: 800;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 span {
+      color: var(--silver-light);
+      display: block;
+    }
+
+    .hero p {
+      width: min(500px, 100%);
+      color: #d5dee9;
+      font-size: 17px;
+      margin-bottom: 34px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 90px;
+    }
+
+    .hero-badges {
+      display: flex;
+      gap: 44px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      max-width: 160px;
+    }
+
+    .icon {
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(216,174,100,.6);
+      color: var(--silver-light);
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      font-size: 20px;
+      flex: 0 0 auto;
+    }
+
+    .section-light {
+      background: #F4F4F4;
+      color: var(--black-text);
+      padding: 78px 0;
+    }
+
+    .section-dark {
+      background: linear-gradient(135deg, var(--dark), var(--dark-2) 65%, var(--dark));
+      color: var(--text);
+      padding: 90px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 50px;
+      margin-bottom: 38px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      color: var(--silver-light);
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      margin-bottom: 12px;
+    }
+
+    .section-head h2,
+    .about-copy h2,
+    .testimonials h2,
+    .cta h2 {
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.15;
+      letter-spacing: -.04em;
+    }
+
+    .section-head p {
+      color: var(--gray);
+      max-width: 520px;
+    }
+
+    .practice-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 2px;
+    }
+
+    .practice-card {
+      background: var(--card);
+      min-height: 260px;
+      padding: 36px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      box-shadow: 0 12px 35px rgba(18,25,35,.05);
+      border: 1px solid #E3E3E3;
+      transition: .25s ease;
+    }
+
+    .practice-card:first-child {
+      border-radius: 12px 0 0 12px;
+    }
+
+    .practice-card:last-child {
+      border-radius: 0 12px 12px 0;
+    }
+
+    .practice-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 55px rgba(18,25,35,.12);
+      z-index: 2;
+    }
+
+    .practice-card .big-icon {
+      font-size: 44px;
+      color: var(--silver-light);
+      margin-bottom: 20px;
+    }
+
+    .practice-card h3 {
+      font-size: 16px;
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+
+    .practice-card p {
+      color: var(--gray);
+      font-size: 13px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: .95fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .office-card {
+      position: relative;
+      min-height: 500px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=85') center/cover no-repeat;
+      box-shadow: var(--shadow);
+    }
+
+    .office-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(6,17,31,.58), rgba(6,17,31,.08));
+    }
+
+    .experience {
+      position: absolute;
+      left: 24px;
+      bottom: 24px;
+      z-index: 2;
+      width: 180px;
+      min-height: 145px;
+      border-radius: 14px;
+      padding: 24px;
+      background: rgba(6,17,31,.86);
+      border: 1px solid rgba(216,174,100,.55);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .experience strong {
+      font-size: 26px;
+      display: block;
+      margin-top: 8px;
+    }
+
+    .experience span {
+      color: var(--text-soft);
+      font-size: 13px;
+    }
+
+    .about-copy p {
+      color: var(--silver-light);
+      margin: 24px 0 32px;
+    }
+
+    .features {
+      display: grid;
+      gap: 24px;
+    }
+
+    .feature {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .feature h3 {
+      font-size: 17px;
+      margin-bottom: 4px;
+    }
+
+    .feature p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--silver);
+    }
+
+    .stats {
+      background: #F4F4F4;
+      color: var(--black-text);
+      padding: 55px 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      text-align: center;
+    }
+
+    .stat {
+      border-right: 1px solid #D8D8D8;
+      padding: 18px 24px;
+    }
+
+    .stat:last-child {
+      border-right: 0;
+    }
+
+    .stat .stat-icon {
+      color: var(--silver-light);
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 40px;
+      letter-spacing: -.05em;
+    }
+
+    .stat span {
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    .testimonials {
+      background: radial-gradient(circle at 50% 20%, rgba(216,174,100,.12), transparent 30%), var(--dark);
+      padding: 92px 0;
+      text-align: center;
+    }
+
+    .testimonials h2 {
+      margin-bottom: 12px;
+    }
+
+    .divider {
+      width: 34px;
+      height: 2px;
+      background: var(--silver-light);
+      margin: 18px auto 48px;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      text-align: left;
+    }
+
+    .testimonial-card {
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 12px;
+      padding: 34px;
+      min-height: 260px;
+      box-shadow: 0 18px 40px rgba(0,0,0,.12);
+    }
+
+    .quote {
+      color: var(--silver-light);
+      font-size: 48px;
+      line-height: 1;
+    }
+
+    .testimonial-card p {
+      color: var(--text-soft);
+      font-size: 15px;
+      margin-bottom: 28px;
+    }
+
+    .person {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #e9c888, #fff0c8);
+      color: var(--black);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+    }
+
+    .person strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .person span {
+      color: var(--silver);
+      font-size: 13px;
+    }
+
+    .dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 36px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      background: rgba(255,255,255,.26);
+      border-radius: 50%;
+    }
+
+    .dot.active {
+      background: var(--silver-light);
+      transform: scale(1.25);
+    }
+
+    .cta-wrap {
+      background: var(--dark);
+      padding: 0 0 72px;
+    }
+
+    .cta {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--silver-light), var(--silver));
+      color: var(--black);
+      border-radius: 14px;
+      padding: 64px 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .cta::after {
+      content: "⚖";
+      position: absolute;
+      right: 46px;
+      bottom: -58px;
+      font-size: 230px;
+      opacity: .16;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 2;
+      max-width: 560px;
+    }
+
+    .cta p {
+      margin-top: 16px;
+      max-width: 470px;
+    }
+
+    .cta .btn {
+      position: relative;
+      z-index: 2;
+      background: var(--dark);
+      color: #fff;
+    }
+
+    .footer {
+      background: var(--dark);
+      padding: 24px 0 40px;
+      color: var(--text-soft);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr .8fr .9fr 1.1fr;
+      gap: 50px;
+      padding: 22px 0 52px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+    .footer h4 {
+      color: #fff;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      margin-bottom: 18px;
+    }
+
+    .footer p,
+    .footer li {
+      color: var(--silver);
+      font-size: 14px;
+    }
+
+    .footer ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .socials {
+      display: flex;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .socials a {
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(255,255,255,.16);
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+    }
+
+    .copy {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      padding-top: 26px;
+    }
+
+    .mobile-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255,255,255,.2);
+      background: rgba(255,255,255,.04);
+      color: #fff;
+      border-radius: 8px;
+      font-size: 22px;
+    }
+
+    @media (max-width: 1050px) {
+      .menu {
+        display: none;
+      }
+
+      .mobile-toggle {
+        display: block;
+      }
+
+      .menu.open {
+        display: grid;
+        position: absolute;
+        top: 92px;
+        left: 24px;
+        right: 24px;
+        background: rgba(6,17,31,.96);
+        border: 1px solid rgba(255,255,255,.12);
+        border-radius: 16px;
+        padding: 24px;
+        gap: 18px;
+      }
+
+      .hero::before {
+        width: 100%;
+        opacity: .36;
+      }
+
+      .practice-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .practice-card,
+      .practice-card:first-child,
+      .practice-card:last-child {
+        border-radius: 12px;
+      }
+
+      .about,
+      .testimonial-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(100% - 30px, 1180px);
+      }
+
+      .header {
+        padding: 18px 0;
+      }
+
+      .logo strong {
+        font-size: 13px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 150px 0 70px;
+      }
+
+      .hero-actions,
+      .hero-badges {
+        gap: 14px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head p {
+        margin-top: 16px;
+      }
+
+      .practice-grid,
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stat {
+        border-right: 0;
+        border-bottom: 1px solid #D8D8D8;
+      }
+
+      .stat:last-child {
+        border-bottom: 0;
+      }
+
+      .office-card {
+        min-height: 380px;
+      }
+
+      .cta {
+        padding: 42px 28px;
+        display: block;
+      }
+
+      .cta .btn {
+        margin-top: 28px;
+      }
+    }
+
+    /* Ajustes finais da paleta Gontijo Bomtempo */
+    .logo-img {
+      max-height: 58px;
+      filter: none;
+    }
+
+    .menu a.active::after,
+    .menu a:hover::after,
+    .divider,
+    .dot.active {
+      background: var(--silver-light);
+    }
+
+    .hero h1 {
+      color: #fff;
+    }
+
+    .hero h1 span,
+    .quote,
+    .icon,
+    .section-dark .eyebrow,
+    .testimonials .eyebrow,
+    .socials a {
+      color: var(--silver-light);
+    }
+
+    .section-light,
+    .stats {
+      background: #F4F4F4;
+    }
+
+    .practice-card {
+      background: #fff;
+      border-color: #E3E3E3;
+      box-shadow: 0 12px 35px rgba(2,2,2,.06);
+    }
+
+    .practice-card:hover {
+      border-color: var(--silver);
+      box-shadow: 0 24px 55px rgba(2,2,2,.14);
+    }
+
+    .practice-card .big-icon,
+    .stat .stat-icon {
+      color: var(--gray);
+    }
+
+    .testimonial-card {
+      background: rgba(216,216,216,.045);
+      border-color: rgba(216,216,216,.08);
+    }
+
+    .avatar {
+      background: linear-gradient(135deg, var(--silver-light), var(--silver));
+      color: var(--black);
+    }
+
+    .cta {
+      background: linear-gradient(135deg, var(--silver-light), var(--silver));
+      color: var(--black);
+      box-shadow: 0 24px 60px rgba(0,0,0,.25);
+    }
+
+    .cta .eyebrow {
+      color: var(--gray) !important;
+    }
+
+    .cta p {
+      color: var(--dark-3);
+    }
+
+    .cta .btn {
+      background: var(--dark);
+      color: #fff;
+      border-color: var(--dark);
+    }
+
+    .footer {
+      background: var(--dark);
+    }
+
+    @media (max-width: 760px) {
+      .logo-img {
+        max-height: 46px;
+      }
+    }
+
+
+    /* Seção de vídeos */
+    .videos {
+      background: linear-gradient(135deg, var(--black), var(--dark-2) 65%, var(--dark));
+      color: var(--text);
+      padding: 90px 0;
+    }
+
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 38px;
+    }
+
+    .video-card {
+      background: rgba(216,216,216,.045);
+      border: 1px solid rgba(216,216,216,.08);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(0,0,0,.18);
+    }
+
+    .video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--black);
+    }
+
+    .video-frame iframe,
+    .video-frame video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      object-fit: cover;
+    }
+
+    .video-info {
+      padding: 22px;
+    }
+
+    .video-info h3 {
+      color: #fff;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .video-info p {
+      color: var(--silver);
+      font-size: 14px;
+    }
+
+    /* Seção de localização e contato por e-mail */
+    .location-contact {
+      background: #F4F4F4;
+      color: var(--black-text);
+      padding: 90px 0;
+    }
+
+    .location-contact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 32px;
+      margin-top: 38px;
+      align-items: stretch;
+    }
+
+    .map-card,
+    .email-card {
+      background: #fff;
+      border: 1px solid #E3E3E3;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 12px 35px rgba(2,2,2,.06);
+    }
+
+    .map-card iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 480px;
+      border: 0;
+    }
+
+    .email-card {
+      padding: 34px;
+    }
+
+    .email-card h3 {
+      font-size: 26px;
+      line-height: 1.2;
+      color: var(--dark-2);
+      margin-bottom: 14px;
+    }
+
+    .email-card p {
+      color: var(--gray);
+      margin-bottom: 24px;
+    }
+
+    .email-form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .email-form label {
+      color: var(--dark-2);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .email-form input,
+    .email-form textarea {
+      width: 100%;
+      border: 1px solid #D8D8D8;
+      border-radius: 8px;
+      padding: 14px 15px;
+      font: inherit;
+      color: var(--dark-2);
+      background: #fff;
+      outline: none;
+      transition: .25s ease;
+    }
+
+    .email-form input:focus,
+    .email-form textarea:focus {
+      border-color: var(--gray);
+      box-shadow: 0 0 0 3px rgba(115,115,118,.12);
+    }
+
+    .email-form textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .email-form .btn {
+      width: fit-content;
+      background: var(--dark);
+      color: #fff;
+      border-color: var(--dark);
+      margin-top: 6px;
+    }
+
+    .email-form .btn:hover {
+      background: var(--black);
+      transform: translateY(-2px);
+    }
+
+    .direct-email {
+      margin-top: 20px;
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    .direct-email a {
+      color: var(--dark-2);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .whatsapp-float {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #25D366;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 35px rgba(0,0,0,.28);
+  z-index: 9999;
+  transition: .25s ease;
+
+  animation: whatsappPulse 2s infinite;
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 18px 45px rgba(0,0,0,.35);
+}
+
+@media (max-width: 760px) {
+  .whatsapp-float {
+    width: 58px;
+    height: 58px;
+    right: 18px;
+    bottom: 18px;
+  }
+}
+
+@keyframes whatsappPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 18px rgba(37, 211, 102, 0);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+    @media (max-width: 1050px) {
+      .videos-grid,
+      .location-contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .map-card iframe {
+        min-height: 380px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .videos,
+      .location-contact {
+        padding: 70px 0;
+      }
+
+      .videos-grid {
+        gap: 18px;
+      }
+
+      .email-card {
+        padding: 26px;
+      }
+
+      .email-form .btn {
+        width: 100%;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a href="#" class="logo" aria-label="Logo do escritório">
+        <img src="./logo1.png" alt="Logo do escritório" class="logo-img">
+        </a>
+
+      <nav class="menu" id="menu">
+        <a href="#inicio" class="active">Início</a>
+        <a href="#areas">Áreas de atuação</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#videos">Vídeos</a>
+        <a href="#localizacao">Localização</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <a class="btn btn-gold" href="https://wa.me/5561981677437" target="_blank">☏ Agendar reunião</a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Defendemos seus direitos. <span>Lutamos por justiça no trabalho.</span></h1>
+          <p>Atuação especializada em Direito do Trabalho para empregados e empregadores. Atendimento humanizado, estratégico e transparente.</p>
+
+          <div class="hero-actions">
+            <a href="https://wa.me/5561981677437" target="_blank" class="btn btn-gold">☏ Falar no WhatsApp</a>
+            <a href="#contato" class="btn btn-outline">Agendar reunião</a>
+          </div>
+
+          <div class="hero-badges">
+            <div class="badge"><span class="icon">◎</span>Atendimento 100% online</div>
+            <div class="badge"><span class="icon">♜</span>Sigilo e ética profissional</div>
+            <div class="badge"><span class="icon">✓</span>Soluções personalizadas</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-light" id="areas">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Áreas de atuação</div>
+            <h2>Soluções completas em<br>Direito do Trabalho</h2>
+          </div>
+          <p>Atuamos de forma ampla para garantir que seus direitos sejam respeitados e que sua empresa esteja sempre segura.</p>
+        </div>
+
+        <div class="practice-grid">
+          <article class="practice-card">
+            <div class="big-icon">♙</div>
+            <h3>Reclamatórias Trabalhistas</h3>
+            <p>Defesa dos seus direitos em casos de verbas rescisórias, horas extras, adicionais e mais.</p>
+          </article>
+          <article class="practice-card">
+            <div class="big-icon">▤</div>
+            <h3>Rescisões e Acordos</h3>
+            <p>Negociação estratégica para garantir acordos justos e vantajosos.</p>
+          </article>
+          <article class="practice-card">
+            <div class="big-icon">♢</div>
+            <h3>Assédio Moral e Sexual</h3>
+            <p>Atuação firme na defesa da dignidade e integridade do trabalhador.</p>
+          </article>
+          <article class="practice-card">
+            <div class="big-icon">♧</div>
+            <h3>Direito do Trabalho Empresarial</h3>
+            <p>Consultoria preventiva para empresas e gestão segura de relações trabalhistas.</p>
+          </article>
+          <article class="practice-card">
+            <div class="big-icon">⚖</div>
+            <h3>Terceirização e Pejotização</h3>
+            <p>Análise de riscos e defesa em casos de vínculo empregatício.</p>
+          </article>
+          <article class="practice-card">
+            <div class="big-icon">⚒</div>
+            <h3>Outros Serviços</h3>
+            <p>FGTS, adicional de insalubridade, periculosidade, danos morais, entre outros.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dark" id="sobre">
+      <div class="container about">
+        <div class="office-card">
+          <div class="experience">
+            <span class="icon">🏅</span>
+            <strong>+10 anos</strong>
+            <span>de experiência em Direito do Trabalho</span>
+          </div>
+        </div>
+
+        <div class="about-copy" id="diferenciais">
+          <div class="eyebrow">Sobre nós</div>
+          <h2>Experiência, estratégia e compromisso com a justiça</h2>
+          <p>Somos especialistas em Direito do Trabalho e acreditamos que cada caso é único. Nosso objetivo é oferecer soluções jurídicas eficazes, com atendimento próximo, transparente e focado em resultados reais.</p>
+
+          <div class="features">
+            <div class="feature">
+              <span class="icon">✦</span>
+              <div>
+                <h3>Atendimento humanizado e personalizado</h3>
+                <p>Você não é apenas mais um caso. Escutamos, entendemos e atuamos de acordo com sua realidade.</p>
+              </div>
+            </div>
+            <div class="feature">
+              <span class="icon">♜</span>
+              <div>
+                <h3>Estratégias jurídicas eficientes</h3>
+                <p>Analisamos cada detalhe para definir a melhor estratégia e alcançar o melhor resultado possível.</p>
+              </div>
+            </div>
+            <div class="feature">
+              <span class="icon">☑</span>
+              <div>
+                <h3>Transparência e comunicação</h3>
+                <p>Mantemos você informado em cada etapa do processo, com clareza e honestidade.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="container stats-grid">
+        <div class="stat">
+          <div class="stat-icon">♧</div>
+          <strong>+1.500</strong>
+          <span>clientes atendidos</span>
+        </div>
+        <div class="stat">
+          <div class="stat-icon">⚖</div>
+          <strong>+2.000</strong>
+          <span>processos concluídos</span>
+        </div>
+        <div class="stat">
+          <div class="stat-icon">🏆</div>
+          <strong>98%</strong>
+          <span>de satisfação</span>
+        </div>
+        <div class="stat">
+          <div class="stat-icon">▣</div>
+          <strong>+10 anos</strong>
+          <span>de experiência</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials" id="depoimentos">
+      <div class="container">
+        <div class="eyebrow">Depoimentos</div>
+        <h2>O que nossos clientes dizem</h2>
+        <div class="divider"></div>
+
+        <div class="testimonial-grid">
+          <article class="testimonial-card">
+            <div class="quote">“</div>
+            <p>Fui muito bem atendida desde o primeiro contato. Tiveram paciência para explicar tudo e me ajudaram a conquistar meus direitos.</p>
+            <div class="person"><span class="avatar">J</span><div><strong>Juliana R.</strong><span>Trabalhadora</span></div></div>
+          </article>
+          <article class="testimonial-card">
+            <div class="quote">“</div>
+            <p>Profissionais excelentes. Resolveram meu caso com agilidade e eficiência. Recomendo de olhos fechados.</p>
+            <div class="person"><span class="avatar">C</span><div><strong>Carlos M.</strong><span>Empresário</span></div></div>
+          </article>
+          <article class="testimonial-card">
+            <div class="quote">“</div>
+            <p>Atendimento humanizado e transparente. Sempre me mantiveram informada e me passaram muita segurança.</p>
+            <div class="person"><span class="avatar">F</span><div><strong>Fernanda L.</strong><span>Trabalhadora</span></div></div>
+          </article>
+        </div>
+
+        <div class="dots" aria-hidden="true">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="videos" id="videos">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Vídeos</div>
+            <h2>Conteúdos em vídeo para orientar você</h2>
+          </div>
+          <!-- <p>Use esta área para adicionar vídeos do YouTube ou arquivos de vídeo locais do próprio escritório.</p> -->
+        </div>
+
+        <div class="videos-grid">
+          <article class="video-card">
+            <div class="video-frame">
+              <iframe src="https://www.youtube.com/watch?v=8_ThZDLXe9Q" title="Vídeo institucional" allowfullscreen></iframe>
+            </div>
+            <div class="video-info">
+              <h3>Vídeo institucional</h3>
+              <p>Substitua o VIDEO_ID_AQUI pelo ID do vídeo do YouTube.</p>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <div class="video-frame">
+              <!-- Vídeo local: coloque o arquivo na mesma pasta do index.html -->
+              <video controls>
+                <source src="./revisao_sm_650.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos em HTML5.
+              </video>
+            </div>
+            <div class="video-info">
+              <h3>Vídeo local</h3>
+              <p>Coloque o arquivo video-01.mp4 na mesma pasta do index.html ou altere o nome do arquivo.</p>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <div class="video-frame">
+              <!-- YouTube: substitua VIDEO_ID_AQUI pelo ID do vídeo desejado -->
+              <iframe src="https://www.youtube.com/embed/VIDEO_ID_AQUI" title="Dúvidas trabalhistas" allowfullscreen></iframe>
+            </div>
+            <div class="video-info">
+              <h3>Dúvidas trabalhistas</h3>
+              <p>Espaço para vídeos explicativos, entrevistas ou orientações do advogado.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="location-contact" id="localizacao">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Localização e contato</div>
+            <h2>Encontre o escritório<br>ou envie uma mensagem</h2>
+          </div>
+          <p>Veja a localização no mapa e entre em contato por e-mail para dúvidas, agendamentos ou solicitações.</p>
+        </div>
+
+        <div class="location-contact-grid">
+          <div class="map-card">
+            <!-- Para trocar o endereço: Google Maps > Compartilhar > Incorporar mapa e substitua o src abaixo -->
+            <iframe
+              src="https://www.google.com/maps?q=Connect+Towers+Águas+Claras+Brasília&z=16&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <div class="email-card" id="contato-email">
+            <h3>Fale conosco por e-mail</h3>
+            <p>Preencha as informações abaixo. Ao enviar, seu programa de e-mail será aberto com a mensagem pronta.</p>
+
+            <form class="email-form" id="emailForm">
+              <div>
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+              </div>
+
+              <div>
+                <label for="email">Seu e-mail</label>
+                <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
+              </div>
+
+              <div>
+                <label for="assunto">Assunto</label>
+                <input type="text" id="assunto" name="assunto" placeholder="Assunto da mensagem" required>
+              </div>
+
+              <div>
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem" required></textarea>
+              </div>
+
+              <button type="submit" class="btn">Enviar por e-mail</button>
+            </form>
+
+            <p class="direct-email">
+              Ou envie diretamente para:
+              <a href="mailto:gontijobomtempo@gbadvogado.com">gontijobomtempo@gbadvogado.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-wrap" id="contato">
+      <div class="container">
+        <div class="cta">
+          <div class="cta-content">
+            <div class="eyebrow">Vamos conversar?</div>
+            <h2>Está com algum problema trabalhista? Podemos ajudar.</h2>
+            <p>Fale com um advogado especialista e entenda como podemos defender seus direitos.</p>
+          </div>
+          <a href="https://wa.me/5561981677437" target="_blank" class="btn">☏ Falar no WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="#" class="logo" aria-label="Logo do escritório">
+          <img src="./logo1.png" alt="Logo Gontijo Bomtempo Advogados Associados" class="logo-img">
+        </a>
+        <p style="margin-top:22px">Atuamos com excelência em Direito do Trabalho, defendendo os direitos de trabalhadores e oferecendo segurança jurídica para empresas.</p>
+        <div class="socials">
+          <a href="#">◎</a><a href="#">in</a><a href="#">✉</a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#areas">Áreas de atuação</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#videos">Vídeos</a></li>
+          <li><a href="#localizacao">Localização</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Áreas de atuação</h4>
+        <ul>
+          <li>Reclamatórias Trabalhistas</li>
+          <li>Rescisões e Acordos</li>
+          <li>Assédio Moral e Sexual</li>
+          <li>Direito do Trabalho Empresarial</li>
+          <li>Terceirização e Pejotização</li>
+          <li>Outros Serviços</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li>☏ (61) 98167-7437</li>
+          <li>✉ gontijobomtempo@gbadvogado.com</li>
+          <li>⌖ Qs 1 Rua 212, Bloco D, Sala 828<br>Águas Claras, Brasília - DF<br>71950-550<br>Edifício Connect Towers - Ao lado do Taguatinga Shopping</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container copy">© 2026 Gontijo Bomtempo Advogados Associados - Todos os direitos reservados.</div>
+  </footer>
+
+  <a
+  href="https://wa.me/5561981677437"
+  class="whatsapp-float"
+  target="_blank"
+  aria-label="Falar no WhatsApp"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.55 2 2.08 6.47 2.08 11.96c0 1.76.46 3.47 1.33 4.98L2 22l5.2-1.36a9.93 9.93 0 0 0 4.83 1.23h.01c5.49 0 9.96-4.47 9.96-9.96a9.86 9.86 0 0 0-2.95-7zM12.04 20.2h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.09.81.83-3.01-.2-.31a8.15 8.15 0 0 1-1.25-4.39c0-4.52 3.68-8.2 8.21-8.2 2.19 0 4.24.85 5.79 2.4a8.13 8.13 0 0 1 2.39 5.8c0 4.52-3.68 8.2-8.19 8.2zm4.5-6.16c-.25-.12-1.47-.72-1.7-.8-.23-.08-.39-.12-.56.12-.17.25-.64.8-.79.97-.15.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.24-.74-.66-1.24-1.47-1.39-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.41-.56-.42h-.48c-.17 0-.43.06-.66.31s-.87.85-.87 2.07.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.24 3.74.59.26 1.06.41 1.42.52.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29z"/>
+  </svg>
+</a>
+
+  <script>
+    const mobileToggle = document.getElementById('mobileToggle');
+    const menu = document.getElementById('menu');
+
+    mobileToggle.addEventListener('click', () => {
+      menu.classList.toggle('open');
+      mobileToggle.textContent = menu.classList.contains('open') ? '×' : '☰';
+    });
+
+    document.querySelectorAll('.menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('open');
+        mobileToggle.textContent = '☰';
+      });
+    });
+
+    const navLinks = document.querySelectorAll('.menu a');
+    const sections = [...navLinks]
+      .map(link => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean);
+
+    window.addEventListener('scroll', () => {
+      const position = window.scrollY + 180;
+      sections.forEach(section => {
+        if (position >= section.offsetTop && position < section.offsetTop + section.offsetHeight) {
+          navLinks.forEach(link => link.classList.remove('active'));
+          const active = document.querySelector(`.menu a[href="#${section.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    });
+
+    const emailForm = document.getElementById('emailForm');
+
+    if (emailForm) {
+      emailForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const nome = document.getElementById('nome').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const assunto = document.getElementById('assunto').value.trim();
+        const mensagem = document.getElementById('mensagem').value.trim();
+
+        const destinatario = 'gontijobomtempo@gbadvogado.com';
+        const corpo = `Nome: ${nome}%0D%0AE-mail: ${email}%0D%0A%0D%0AMensagem:%0D%0A${encodeURIComponent(mensagem)}`;
+        const mailto = `mailto:${destinatario}?subject=${encodeURIComponent(assunto)}&body=${corpo}`;
+
+        window.location.href = mailto;
+      });
+    }
+
+  </script>
+</body>
+</html>
