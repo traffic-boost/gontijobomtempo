@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gbadvogado.com.br/sitemap.xml
