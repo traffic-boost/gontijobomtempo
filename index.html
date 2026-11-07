@@ -129,6 +129,11 @@
       background: var(--silver-light);
     }
 
+    .menu .menu-cta {
+      display: none;
+      padding: 0 28px;
+    }
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -247,6 +252,10 @@
       font-size: 14px;
       font-weight: 700;
       max-width: 160px;
+    }
+
+    .badge-wide {
+      max-width: none;
     }
 
     .icon {
@@ -456,8 +465,12 @@
 
     .stat .stat-icon {
       color: var(--silver-light);
-      font-size: 32px;
       margin-bottom: 8px;
+    }
+
+    .stat .stat-icon svg {
+      display: block;
+      margin: 0 auto;
     }
 
     .stat strong {
@@ -502,6 +515,8 @@
       padding: 34px;
       min-height: 260px;
       box-shadow: 0 18px 40px rgba(0,0,0,.12);
+      display: flex;
+      flex-direction: column;
     }
 
     .quote {
@@ -520,6 +535,7 @@
       display: flex;
       gap: 12px;
       align-items: center;
+      margin-top: auto;
     }
 
     .avatar {
@@ -564,7 +580,7 @@
 
     .cta-wrap {
       background: var(--dark);
-      padding: 0 0 72px;
+      padding: 40px 0 72px;
     }
 
     .cta {
@@ -641,6 +657,11 @@
       gap: 10px;
     }
 
+    .footer-address:hover {
+      color: var(--silver-light);
+      text-decoration: underline;
+    }
+
     .socials {
       display: flex;
       gap: 14px;
@@ -672,28 +693,56 @@
       color: #fff;
       border-radius: 8px;
       font-size: 22px;
+      cursor: pointer;
+      flex-shrink: 0;
     }
 
     @media (max-width: 1050px) {
+      .header {
+        position: fixed;
+        background: rgba(11,13,20,.96);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        padding: 16px 0;
+        border-bottom: 1px solid rgba(255,255,255,.08);
+      }
+
+      .header .header-cta {
+        display: none;
+      }
+
       .menu {
         display: none;
       }
 
+      .menu .menu-cta {
+        display: inline-flex;
+        margin-top: 6px;
+      }
+
+      .menu .menu-cta::after {
+        display: none;
+      }
+
       .mobile-toggle {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .menu.open {
         display: grid;
-        position: absolute;
-        top: 92px;
-        left: 24px;
-        right: 24px;
-        background: rgba(6,17,31,.96);
+        position: fixed;
+        top: 90px;
+        left: 16px;
+        right: 16px;
+        background: rgba(6,17,31,.98);
         border: 1px solid rgba(255,255,255,.12);
         border-radius: 16px;
         padding: 24px;
         gap: 18px;
+        z-index: 100;
+        box-shadow: 0 24px 60px rgba(0,0,0,.45);
       }
 
       .hero::before {
@@ -733,7 +782,15 @@
 
       .hero {
         min-height: auto;
-        padding: 150px 0 70px;
+        padding: 120px 0 70px;
+      }
+
+      .hero-content {
+        padding-top: 20px;
+      }
+
+      .menu.open {
+        top: 82px;
       }
 
       .hero-actions,
@@ -927,7 +984,7 @@
     .location-contact {
       background: #F4F4F4;
       color: var(--black-text);
-      padding: 90px 0;
+      padding: 50px 0;
     }
 
     .location-contact-grid {
@@ -1022,7 +1079,7 @@
     .direct-email {
       margin-top: 20px;
       color: var(--gray);
-      font-size: 14px;
+      font-size: 12px;
     }
 
     .direct-email a {
@@ -1096,7 +1153,7 @@
     @media (max-width: 760px) {
       .videos,
       .location-contact {
-        padding: 70px 0;
+        padding: 50px 0;
       }
 
       .videos-grid {
@@ -1266,12 +1323,12 @@
         <a href="#areas">Áreas de atuação</a>
         <a href="#sobre">Sobre</a>
         <a href="#depoimentos">Depoimentos</a>
-        <a href="#videos">Vídeos</a>
         <a href="#localizacao">Localização</a>
         <a href="#contato">Contato</a>
+        <a class="btn btn-gold menu-cta" href="https://wa.me/5561999395666" target="_blank">☏ Agendar reunião</a>
       </nav>
 
-      <a class="btn btn-gold" href="https://wa.me/5561981677437" target="_blank">☏ Agendar reunião</a>
+      <a class="btn btn-gold header-cta" href="https://wa.me/5561999395666" target="_blank">☏ Agendar reunião</a>
       <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menu">☰</button>
     </div>
   </header>
@@ -1284,12 +1341,12 @@
           <p>Atuação especializada em Direito do Trabalho para empregados e empregadores. Atendimento humanizado, estratégico e transparente.</p>
 
           <div class="hero-actions">
-            <a href="https://wa.me/5561981677437" target="_blank" class="btn btn-gold">☏ Falar no WhatsApp</a>
+            <a href="https://wa.me/5561999395666" target="_blank" class="btn btn-gold">☏ Falar no WhatsApp</a>
             <a href="#contato" class="btn btn-outline">Agendar reunião</a>
           </div>
 
           <div class="hero-badges">
-            <div class="badge"><span class="icon">◎</span>Atendimento 100% online</div>
+            <div class="badge badge-wide"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span>Atendimento online<br>e presencial</span></div>
             <div class="badge"><span class="icon">♜</span>Sigilo e ética profissional</div>
             <div class="badge"><span class="icon">✓</span>Soluções personalizadas</div>
           </div>
@@ -1387,22 +1444,22 @@
     <section class="stats">
       <div class="container stats-grid">
         <div class="stat">
-          <div class="stat-icon">♧</div>
-          <strong>+1.500</strong>
+          <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <strong>+800</strong>
           <span>clientes atendidos</span>
         </div>
         <div class="stat">
-          <div class="stat-icon">⚖</div>
-          <strong>+2.000</strong>
+          <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg></div>
+          <strong>+600</strong>
           <span>processos concluídos</span>
         </div>
         <div class="stat">
-          <div class="stat-icon">🏆</div>
-          <strong>98%</strong>
+          <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></div>
+          <strong>95%</strong>
           <span>de satisfação</span>
         </div>
         <div class="stat">
-          <div class="stat-icon">▣</div>
+          <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div>
           <strong>+10 anos</strong>
           <span>de experiência</span>
         </div>
@@ -1424,20 +1481,20 @@
           <article class="testimonial-card">
             <div class="quote">“</div>
             <p>Profissionais excelentes. Resolveram meu caso com agilidade e eficiência. Recomendo de olhos fechados.</p>
-            <div class="person"><span class="avatar">C</span><div><strong>Carlos M.</strong><span>Empresário</span></div></div>
+            <div class="person"><span class="avatar">F</span><div><strong>Fernanda L.</strong><span>Empresária</span></div></div>
           </article>
           <article class="testimonial-card">
             <div class="quote">“</div>
             <p>Atendimento humanizado e transparente. Sempre me mantiveram informada e me passaram muita segurança.</p>
-            <div class="person"><span class="avatar">F</span><div><strong>Fernanda L.</strong><span>Trabalhadora</span></div></div>
+            <div class="person"><span class="avatar">C</span><div><strong>Carlos M.</strong><span>Empregado PJ</span></div></div>
           </article>
         </div>
 
-        <div class="dots" aria-hidden="true">
+        <!-- <div class="dots" aria-hidden="true">
           <span class="dot active"></span>
           <span class="dot"></span>
           <span class="dot"></span>
-        </div>
+        </div> -->
       </div>
     </section>
 
@@ -1492,59 +1549,10 @@
             </div>
 
             <div class="case-owner-signature">
-              <strong>Nome do Advogado</strong>
-              <span>OAB/UF 000.000 · Advogado Trabalhista</span>
+              <strong>Guilherme Gontijo Bomtempo</strong>
+              <span>OAB/DF 53.970 · Advogado Trabalhista</span>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="videos" id="videos">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">Vídeos</div>
-            <h2>Conteúdos em vídeo para orientar você</h2>
-          </div>
-          <!-- <p>Use esta área para adicionar vídeos do YouTube ou arquivos de vídeo locais do próprio escritório.</p> -->
-        </div>
-
-        <div class="videos-grid">
-          <article class="video-card">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/watch?v=8_ThZDLXe9Q" title="Vídeo institucional" allowfullscreen></iframe>
-            </div>
-            <div class="video-info">
-              <h3>Vídeo institucional</h3>
-              <p>Substitua o VIDEO_ID_AQUI pelo ID do vídeo do YouTube.</p>
-            </div>
-          </article>
-
-          <article class="video-card">
-            <div class="video-frame">
-              <!-- Vídeo local: coloque o arquivo na mesma pasta do index.html -->
-              <video controls>
-                <source src="./revisao_sm_650.mp4" type="video/mp4">
-                Seu navegador não suporta vídeos em HTML5.
-              </video>
-            </div>
-            <div class="video-info">
-              <h3>Vídeo local</h3>
-              <p>Coloque o arquivo video-01.mp4 na mesma pasta do index.html ou altere o nome do arquivo.</p>
-            </div>
-          </article>
-
-          <article class="video-card">
-            <div class="video-frame">
-              <!-- YouTube: substitua VIDEO_ID_AQUI pelo ID do vídeo desejado -->
-              <iframe src="https://www.youtube.com/embed/VIDEO_ID_AQUI" title="Dúvidas trabalhistas" allowfullscreen></iframe>
-            </div>
-            <div class="video-info">
-              <h3>Dúvidas trabalhistas</h3>
-              <p>Espaço para vídeos explicativos, entrevistas ou orientações do advogado.</p>
-            </div>
-          </article>
         </div>
       </div>
     </section>
@@ -1615,7 +1623,7 @@
             <h2>Está com algum problema trabalhista? Podemos ajudar.</h2>
             <p>Fale com um advogado especialista e entenda como podemos defender seus direitos.</p>
           </div>
-          <a href="https://wa.me/5561981677437" target="_blank" class="btn">☏ Falar no WhatsApp</a>
+          <a href="https://wa.me/5561999395666" target="_blank" class="btn">☏ Falar no WhatsApp</a>
         </div>
       </div>
     </section>
@@ -1640,7 +1648,6 @@
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#areas">Áreas de atuação</a></li>
           <li><a href="#depoimentos">Depoimentos</a></li>
-          <li><a href="#videos">Vídeos</a></li>
           <li><a href="#localizacao">Localização</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
@@ -1661,9 +1668,9 @@
       <div>
         <h4>Contato</h4>
         <ul>
-          <li>☏ (61) 98167-7437</li>
+          <li>☏ (61) 99939-5666</li>
           <li>✉ gontijobomtempo@gbadvogado.com</li>
-          <li>⌖ Qs 1 Rua 212, Bloco D, Sala 828<br>Águas Claras, Brasília - DF<br>71950-550<br>Edifício Connect Towers - Ao lado do Taguatinga Shopping</li>
+          <li><a class="footer-address" href="https://www.google.com/maps?q=Connect+Towers+Águas+Claras+Brasília&z=16" target="_blank">⌖ Qs 1 Rua 212, Bloco D, Sala 828<br>Águas Claras, Brasília - DF<br>71950-550<br>Edifício Connect Towers - Ao lado do Taguatinga Shopping</a></li>
         </ul>
       </div>
     </div>
@@ -1672,7 +1679,7 @@
   </footer>
 
   <a
-  href="https://wa.me/5561981677437"
+  href="https://wa.me/5561999395666"
   class="whatsapp-float"
   target="_blank"
   aria-label="Falar no WhatsApp"
@@ -1698,7 +1705,7 @@
       });
     });
 
-    const navLinks = document.querySelectorAll('.menu a');
+    const navLinks = document.querySelectorAll('.menu a[href^="#"]');
     const sections = [...navLinks]
       .map(link => document.querySelector(link.getAttribute('href')))
       .filter(Boolean);
